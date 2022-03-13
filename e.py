@@ -1,4 +1,5 @@
 from colorama import *
+import sys
 
 class Wrong(Exception):
 	pass
@@ -117,7 +118,7 @@ def lexer(text):
 	tokens.append("EOF")
 	if tokens == ['SOF','EOF']:
 		raise TokenError("No tokens to be found in list.")
-	print(tokens)
+	#print(tokens)
 	return tokens
 
 def parser(toks):
@@ -202,11 +203,16 @@ def parser(toks):
 		print(e)
 	
 def run():
-	while True:
-		b = input(">>> ")
-		b = str(b)
+	if sys.argv[1]:
+		b = open(sys.argv[1],'r').read()
 		e = lexer(b)
 		f = parser(e)
+	else:
+		while True:
+			b = input(">>> ")
+			b = str(b)
+			e = lexer(b)
+			f = parser(e)
 
 
 run()
