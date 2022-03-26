@@ -1,5 +1,5 @@
-import shutil
+import shutil,os
 
-shutil.move("Escript","~/.local/bin")
+shutil.move("Escript","/home/pi/.local/bin/")
 
-print("Installed. Use the Escript command to run.")
+print("To complete installation, run command: cd /home/pi/.local/bin/ && chmod +x Escript")

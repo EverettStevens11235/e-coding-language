@@ -204,7 +204,7 @@ def parser(toks):
 		print(e)
 	
 def run():
-	if sys.argv[1]:
+	if len(sys.argv) == 2:
 		b = open(sys.argv[1],'r').read()
 		e = lexer(b)
 		f = parser(e)
